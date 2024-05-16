@@ -6,18 +6,7 @@ import VouchersGrid from "./VouchersGrid";
 import { useState, useEffect } from "react";
 import Logout from "./Logout";
 
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-
-import { Link } from "react-router-dom";
+import Navbar from "./Navbar";
 
 export function Sidebar() {
   const { allvouchers } = useSelector((state) => state.vouchers);
@@ -55,26 +44,16 @@ export function Sidebar() {
   // // console.log(remainingVouchers);
 
   return (
-    <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
-      <div className="block md:hidden ">
-        <Sheet className="block md:hidden">
-          <SheetTrigger asChild className="">
-            <ListCollapse className="h-8 w-8" />
-          </SheetTrigger>
-          <SheetContent side="left">
-            <SheetHeader>
-              <SheetTitle>
-                <Link
-                  to="/dashboard"
-                  className="flex items-center gap-2 font-semibold"
-                >
-                  <Ticket className="h-8 w-8" />
-                  <span className="">HORUS VOUCHER</span>
-                </Link>
-              </SheetTitle>
-              <SheetDescription></SheetDescription>
-            </SheetHeader>
-            <div className="grid gap-4 py-4">
+    <>
+      <Navbar
+        selectedCategory={selectedCategory}
+        handleCategoryChange={handleCategoryChange}
+        remainingVouchers={remainingVouchers}
+      />
+      <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
+        <div className="hidden bg-muted/40 md:block">
+          <div className="flex h-full max-h-screen flex-col gap-2">
+            <div className="flex-1">
               <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
                 <div className="flex justify-center my-6 text-xl font-bold">
                   Kategori Voucher
@@ -121,80 +100,22 @@ export function Sidebar() {
                     {remainingVouchers.Travel || 0}
                   </Badge>
                 </button>
-              </nav>
-            </div>
-            <SheetFooter>
-              <SheetClose asChild>
                 <div className="mt-8">
                   <Logout />
                 </div>
-              </SheetClose>
-            </SheetFooter>
-          </SheetContent>
-        </Sheet>
-      </div>
-      <div className="hidden bg-muted/40 md:block">
-        <div className="flex h-full max-h-screen flex-col gap-2">
-          <div className="flex-1">
-            <nav className="grid items-start px-2 text-sm font-medium lg:px-4">
-              <div className="flex justify-center my-6 text-xl font-bold">
-                Kategori Voucher
-              </div>
-              <button
-                className={`flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary hover:bg-secondary ${
-                  selectedCategory === "Food" ? "text-primary bg-secondary" : ""
-                }`}
-                onClick={() => handleCategoryChange("Food")}
-              >
-                <Utensils className="h-4 w-4" />
-                Food Vouchers
-                <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
-                  {remainingVouchers.Food || 0}
-                </Badge>
-              </button>
-              <button
-                className={`flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary hover:bg-secondary ${
-                  selectedCategory === "Fashion"
-                    ? "text-primary bg-secondary"
-                    : ""
-                }`}
-                onClick={() => handleCategoryChange("Fashion")}
-              >
-                <Shirt className="h-4 w-4" />
-                Fashion Vouchers
-                <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
-                  {remainingVouchers.Fashion || 0}
-                </Badge>
-              </button>
-              <button
-                className={`flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary hover:bg-secondary ${
-                  selectedCategory === "Travel"
-                    ? "text-primary bg-secondary"
-                    : ""
-                }`}
-                onClick={() => handleCategoryChange("Travel")}
-              >
-                <Plane className="h-4 w-4" />
-                Travel Vouchers
-                <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
-                  {remainingVouchers.Travel || 0}
-                </Badge>
-              </button>
-              <div className="mt-8">
-                <Logout />
-              </div>
-            </nav>
+              </nav>
+            </div>
           </div>
         </div>
+        <div className="flex flex-col">
+          <VouchersGrid
+            category={selectedCategory}
+            remainingVouchers={remainingVouchers}
+            setRemainingVouchers={setRemainingVouchers}
+          />
+        </div>
       </div>
-      <div className="flex flex-col">
-        <VouchersGrid
-          category={selectedCategory}
-          remainingVouchers={remainingVouchers}
-          setRemainingVouchers={setRemainingVouchers}
-        />
-      </div>
-    </div>
+    </>
   );
 }
 

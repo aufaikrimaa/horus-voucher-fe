@@ -1,6 +1,5 @@
 import { useNavigate, Link } from "react-router-dom";
 import { useEffect } from "react";
-import Navbar from "@/components/comp/Navbar";
 import Sidebar from "@/components/comp/Sidebar";
 
 function VouchersDashboard() {
@@ -20,7 +19,6 @@ function VouchersDashboard() {
 
   return (
     <>
-      <Navbar />
       <Sidebar />
     </>
   );

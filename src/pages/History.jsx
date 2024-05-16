@@ -20,7 +20,11 @@ function History() {
 
   return (
     <>
-      <Navbar />
+      <Navbar
+        selectedCategory={null}
+        handleCategoryChange={null}
+        remainingVouchers={{}}
+      />
       <SidebarClaimed />
     </>
   );

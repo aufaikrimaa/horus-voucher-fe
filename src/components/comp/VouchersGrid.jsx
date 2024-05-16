@@ -38,11 +38,20 @@ function VouchersGrid({ category, remainingVouchers, setRemainingVouchers }) {
     try {
       const user = JSON.parse(localStorage.getItem("userData"));
       const user_id = user.id;
+      const token = document.cookie.replace(
+        /(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/,
+        "$1"
+      );
       const response = await axios.post(
         "http://localhost:3000/api/voucher/claim",
         {
           id_voucher,
           id_user: user_id,
+        },
+        {
+          headers: {
+            Authorization: `${token}`,
+          },
         }
       );
       // console.log(response.data);

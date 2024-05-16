@@ -29,10 +29,19 @@ function HistoryVoucherTable() {
 
   const handleRemove = async (id) => {
     try {
+      const token = document.cookie.replace(
+        /(?:(?:^|.*;\s*)token\s*=\s*([^;]*).*$)|^.*$/,
+        "$1"
+      );
       const response = await axios.post(
         "http://localhost:3000/api/voucher/remove",
         {
           id,
+        },
+        {
+          headers: {
+            Authorization: `${token}`,
+          },
         }
       );
       //   console.log(response);
