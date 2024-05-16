@@ -38,7 +38,7 @@ function Navbar({ selectedCategory, handleCategoryChange, remainingVouchers }) {
       <div className="block md:hidden ">
         <Sheet className="block md:hidden">
           <SheetTrigger asChild className="">
-            <ListCollapse className="h-8 w-8" />
+            <ListCollapse className="h-8 w-8 text-primary" />
           </SheetTrigger>
           <SheetContent side="left">
             <SheetHeader>
@@ -47,8 +47,8 @@ function Navbar({ selectedCategory, handleCategoryChange, remainingVouchers }) {
                   to="/dashboard"
                   className="flex items-center gap-2 font-semibold"
                 >
-                  <Ticket className="h-8 w-8" />
-                  <span className="">HORUS VOUCHER</span>
+                  <Ticket className="h-8 w-8 text-primary" />
+                  <span className="text-primary">HORUS VOUCHER</span>
                 </Link>
               </SheetTitle>
               <SheetDescription></SheetDescription>
