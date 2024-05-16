@@ -69,7 +69,7 @@ function VouchersGrid({ category, remainingVouchers, setRemainingVouchers }) {
               Seluruh voucher disini sudah anda claim.
             </div>
           ) : (
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid md:grid-cols-3 gap-4">
               {vouchers.map((item, i) => (
                 <div
                   key={i}

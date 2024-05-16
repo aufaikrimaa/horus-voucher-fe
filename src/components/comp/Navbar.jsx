@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Ticket } from "lucide-react";
+import { Ticket, ListCollapse } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useEffect } from "react";
@@ -16,13 +16,18 @@ function Navbar() {
 
   // console.log(voucherClaimed);
   return (
-    <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6 ">
-      <Link to="/dashboard" className="flex items-center gap-2 font-semibold">
-        <Ticket className="h-8 w-8" />
-        <span className="">HORUS VOUCHER</span>
-      </Link>
+    <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6 relative">
+      <div className="hidden md:block">
+        <Link to="/dashboard" className="flex items-center gap-2 font-semibold">
+          <Ticket className="h-8 w-8" />
+          <span className="">HORUS VOUCHER</span>
+        </Link>
+      </div>
+      <div className="block md:hidden">
+        <ListCollapse className="h-8 w-8" />
+      </div>
       <div className="w-full flex-1 flex justify-center">
-        Vouchers Dashboard
+        <div className="hidden md:block"> Vouchers Dashboard</div>
       </div>
       <Link to="/history">
         <Button>
