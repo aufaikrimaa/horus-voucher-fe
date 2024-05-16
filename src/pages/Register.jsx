@@ -61,7 +61,7 @@ export function Register() {
           <CardTitle>Register</CardTitle>
           <CardDescription>
             Sudah Punya Akun?
-            <span className="text-amber-400">
+            <span className="text-primary">
               <Link to="/"> Login!</Link>
             </span>
           </CardDescription>
@@ -115,14 +115,12 @@ export function Register() {
               </div>
             </div>
           </form>
-          <div className="text-xs text-red-600 font-semibold mt-4">
+          <div className="text-xs text-destructive font-semibold mt-4">
             {errorMessage}
           </div>
         </CardContent>
         <CardFooter className="flex justify-end">
-          <Button onClick={handleRegister} className="bg-amber-600">
-            Register
-          </Button>
+          <Button onClick={handleRegister}>Register</Button>
         </CardFooter>
       </Card>
     </div>

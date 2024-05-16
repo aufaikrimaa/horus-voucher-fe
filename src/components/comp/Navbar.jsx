@@ -31,8 +31,8 @@ function Navbar({ selectedCategory, handleCategoryChange, remainingVouchers }) {
     <div className="flex h-14 items-center border-b px-4 lg:h-[60px] lg:px-6 relative">
       <div className="hidden md:block">
         <Link to="/dashboard" className="flex items-center gap-2 font-semibold">
-          <Ticket className="h-8 w-8" />
-          <span className="">HORUS VOUCHER</span>
+          <Ticket className="h-8 w-8 text-primary" />
+          <span className="text-primary">HORUS VOUCHER</span>
         </Link>
       </div>
       <div className="block md:hidden ">

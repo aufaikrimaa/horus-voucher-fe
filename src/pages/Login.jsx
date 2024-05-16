@@ -59,7 +59,7 @@ export function Login() {
           <CardTitle>Login</CardTitle>
           <CardDescription>
             Belum Punya Akun?
-            <span className="text-amber-400">
+            <span className="text-primary">
               <Link to="/register"> Register!</Link>
             </span>
           </CardDescription>
@@ -89,14 +89,12 @@ export function Login() {
               </div>
             </div>
           </form>
-          <div className="text-xs text-red-600 font-semibold mt-4">
+          <div className="text-xs text-destructive font-semibold mt-4">
             {errorMessage}
           </div>
         </CardContent>
         <CardFooter className="flex justify-end">
-          <Button onClick={handleLogin} className="bg-amber-600">
-            Login
-          </Button>
+          <Button onClick={handleLogin}>Login</Button>
         </CardFooter>
       </Card>
     </div>

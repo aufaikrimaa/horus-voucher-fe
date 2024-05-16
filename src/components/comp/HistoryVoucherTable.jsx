@@ -95,7 +95,12 @@ function HistoryVoucherTable() {
                   </div>
                 </TableCell>
                 <TableCell>
-                  <Button onClick={() => handleRemove(item.id)}>Remove</Button>
+                  <Button
+                    onClick={() => handleRemove(item.id)}
+                    variant="destructive"
+                  >
+                    Remove
+                  </Button>
                 </TableCell>
               </TableRow>
             ))}
