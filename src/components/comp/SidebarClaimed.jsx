@@ -1,4 +1,4 @@
-import { Home } from "lucide-react";
+import { Utensils, Shirt, Plane } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import { useSelector } from "react-redux";
@@ -24,21 +24,21 @@ export function SidebarClaimed() {
                   Kategori Voucher
                 </div>
                 <div className="flex items-center gap-3 rounded-lg px-3 py-2 text-primary">
-                  <Home className="h-4 w-4" />
+                  <Utensils className="h-4 w-4" />
                   Food Vouchers
                   <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
                     {voucherCountClaimed.Food || 0}
                   </Badge>
                 </div>
                 <div className="flex items-center gap-3 rounded-lg px-3 py-2 text-primary">
-                  <Home className="h-4 w-4" />
+                  <Shirt className="h-4 w-4" />
                   Fashion Vouchers
                   <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
                     {voucherCountClaimed.Fashion || 0}
                   </Badge>
                 </div>
                 <div className="flex items-center gap-3 rounded-lg px-3 py-2 text-primary">
-                  <Home className="h-4 w-4" />
+                  <Plane className="h-4 w-4" />
                   Travel Vouchers
                   <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
                     {voucherCountClaimed.Travel || 0}

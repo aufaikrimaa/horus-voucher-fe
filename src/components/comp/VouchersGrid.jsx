@@ -31,7 +31,7 @@ function VouchersGrid({ category, remainingVouchers, setRemainingVouchers }) {
       }
       return count;
     }, 0);
-    console.log(countVisibleCards);
+    // console.log(countVisibleCards);
   }, [vouchers, user_id]);
 
   const handleClaim = async (id_voucher) => {
@@ -45,7 +45,7 @@ function VouchersGrid({ category, remainingVouchers, setRemainingVouchers }) {
           id_user: user_id,
         }
       );
-      console.log(response.data);
+      // console.log(response.data);
       if (response.status === 200) {
         alert("Voucher berhasil diklaim!");
         dispatch(getVouchers(category));

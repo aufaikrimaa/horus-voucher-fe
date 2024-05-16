@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Home } from "lucide-react";
+import { Utensils, Shirt, Plane } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import VouchersGrid from "./VouchersGrid";
@@ -30,7 +30,7 @@ export function Sidebar() {
     setRemainingVouchers(remainingVouchersByCategory);
   }, [allvouchers]);
 
-  console.log(allvouchers);
+  // console.log(allvouchers);
 
   const handleCategoryChange = (category) => {
     setSelectedCategory(category);
@@ -39,7 +39,7 @@ export function Sidebar() {
   const user = JSON.parse(localStorage.getItem("userData"));
   const user_id = user.id;
 
-  // console.log(remainingVouchers);
+  // // console.log(remainingVouchers);
 
   return (
     <div className="grid min-h-screen w-full md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
@@ -56,7 +56,7 @@ export function Sidebar() {
                 }`}
                 onClick={() => handleCategoryChange("Food")}
               >
-                <Home className="h-4 w-4" />
+                <Utensils className="h-4 w-4" />
                 Food Vouchers
                 <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
                   {remainingVouchers.Food || 0}
@@ -70,7 +70,7 @@ export function Sidebar() {
                 }`}
                 onClick={() => handleCategoryChange("Fashion")}
               >
-                <Home className="h-4 w-4" />
+                <Shirt className="h-4 w-4" />
                 Fashion Vouchers
                 <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
                   {remainingVouchers.Fashion || 0}
@@ -84,7 +84,7 @@ export function Sidebar() {
                 }`}
                 onClick={() => handleCategoryChange("Travel")}
               >
-                <Home className="h-4 w-4" />
+                <Plane className="h-4 w-4" />
                 Travel Vouchers
                 <Badge className="ml-auto flex h-6 w-6 shrink-0 items-center justify-center rounded-full">
                   {remainingVouchers.Travel || 0}

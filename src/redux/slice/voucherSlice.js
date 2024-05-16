@@ -45,9 +45,9 @@ const voucherSlice = createSlice({
 //           },
 //         }
 //       );
-//       // console.log("Response Data:", response.data.data);
+//       // // console.log("Response Data:", response.data.data);
 //       const data = response.data.data;
-//       console.log(data);
+//       // console.log(data);
 
 //       dispatch(setAllVouchers(data));
 //     } catch (error) {
@@ -71,9 +71,9 @@ export const getVouchers = (category) => {
           },
         }
       );
-      // console.log("Response Data:", response.data.data);
+      // // console.log("Response Data:", response.data.data);
       const data = response.data.data;
-      console.log(data);
+      // console.log(data);
 
       const filteredVouchers = data.filter(
         (voucher) => voucher.kategori === category
@@ -97,7 +97,7 @@ export const getVouchersClaimed = () => {
       );
       const user = JSON.parse(localStorage.getItem("userData"));
       const user_id = user.id;
-      // console.log(user_id);
+      // // console.log(user_id);
       const response = await axios.get(
         "http://localhost:3000/api/voucher/claim",
         {
@@ -110,7 +110,7 @@ export const getVouchersClaimed = () => {
         }
       );
       const data = response.data.data;
-      console.log(data);
+      // console.log(data);
 
       const voucherCounts = data.reduce((counts, claim) => {
         const kategori = claim.voucher.kategori;
@@ -118,7 +118,7 @@ export const getVouchersClaimed = () => {
         return counts;
       }, {});
 
-      // console.log(voucherCounts);
+      // // console.log(voucherCounts);
       dispatch(setVoucherCountClaimed(voucherCounts));
 
       dispatch(setVoucherClaimed(data));
